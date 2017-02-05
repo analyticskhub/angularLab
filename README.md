@@ -2,6 +2,34 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
+AppFramework 
+
+ModuleGroups
+1.) layout
+	header
+	sidebar
+	footer
+	content
+	pageheader (breadcrumb)
+	search
+
+2.) Oneclick
+	dataLayerService
+	journey
+	routing.ts
+
+
+3.) Oregon
+
+Widgets
+
+a.) codeWidget
+	codeBlockHeader
+	codeBlockBody
+	codeOutput
+	codeCalltoAction
+	
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
