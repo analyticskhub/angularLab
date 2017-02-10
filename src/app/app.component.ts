@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  pageTracked = false;
 
+  nextStep = function(){
+    this.pageTracked = true;
+  }
     digitalData = {
     "siteBrand": "wbc",
     "siteName": "oneclick",
@@ -16,6 +20,7 @@ export class AppComponent {
     "siteEnv": "prod",
     "siteDomain": "www.westpac.com.au",
     "siteExperience": "mob",
+    "defaultEnd": "-----------------------------",
     "formName": "Cons CC",
     "formType": "checkurl",
     "formIsSTP": "true",

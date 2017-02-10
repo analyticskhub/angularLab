@@ -1,69 +1,15 @@
 <app-content>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="wrapper wrapper-content animated fadeInRight">
-
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="p-xs">
-                        <div class="pull-left m-r-md">
-                            <i class="fa fa-globe text-navy mid-icon"></i>
-                        </div>
-                        <h2>Welcome in Inspinia Forum</h2>
-                        <span>Feel free to choose topic you're interested in.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income</h5>
-                    <h1 class="no-margins">Datalayer</h1>
-                    <small>Data layer knowledgebase</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income last month</h5>
-                    <h1 class="no-margins">Analytics</h1>
-                    <small>Adobe Analytics knowledgebase</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income last day</h5>
-                    <h1 class="no-margins">DTM</h1>
-                    <small>Adobe DTM knowledgebase</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income all</h5>
-                    <h1 class="no-margins">54,200</h1>
-                    <small>Total income</small>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     <div class="wrapper wrapper-content  animated fadeInRight">
         <div class="row">
             <div class="col-lg-8">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>Issue list</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="Number" value="https://www.westpac.com.au/faq/activate-my-card/" placeholder="URL" required="">
+                            <span class="input-group-addon"><i class="fa fa-link fa-fw"></i></span>
+                        </div>
                     </div>
-                    <div class="ibox-content ibox-heading">
+                    <div class="ibox-content ibox-heading" *ngIf="pageTracked">
                         <h3>Stock price up
                             <div class="stat-percent text-navy">34% <i class="fa fa-level-up"></i></div>
                         </h3>
@@ -76,55 +22,12 @@
                     </div>
                     <div class="ibox-footer">
                         <div class="ibox-tools">
-                            <a href="" class="btn btn-primary btn-xs">TrackPage</a>
+                            <a href="#" class="btn btn-primary btn-xs" (click)="nextStep()">TrackPage</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Cart Summary</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <span>
-                                Total
-                            </span>
-                        <h2 class="font-bold">
-                            $390,00
-                        </h2>
-
-                        <hr/>
-                        <span class="text-muted small">
-                                *For United States, France and Germany applicable sales tax will be applied
-                            </span>
-                        <div class="m-t-sm">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                                <a href="#" class="btn btn-white btn-sm"> Cancel</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Support</h5>
-                    </div>
-                    <div class="ibox-content text-center">
-
-
-
-                        <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
-                        <span class="small">
-                                Please contact with us if you have any questions. We are avalible 24h.
-                            </span>
-
-
-                    </div>
-                </div>
-
                 <div class="ibox">
                     <div class="ibox-content">
 
@@ -148,6 +51,14 @@
                             <a href="#" class="product-name"> Product 2</a>
                             <div class="small m-t-xs">
                                 Many desktop publishing packages and web page editors now.
+                            <ul class="category-list" style="padding: 0">
+                                <li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
+                            </ul>
+
                             </div>
                             <div class="m-t text-righ">
 
@@ -160,6 +71,5 @@
 
             </div>
         </div>
-
     </div>
 </app-content>
