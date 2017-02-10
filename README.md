@@ -2,16 +2,37 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
-AppFramework 
+# AppFramework 
 
-ModuleGroups
-1.) layout
-	header
-	sidebar
-	footer
-	content
-	pageheader (breadcrumb)
-	search
+ModuleGroups*
+
+- appComponent
+- layout/*
+	* header
+	* sidebar
+	* footer
+	* content
+	* pageheader (breadcrumb)
+	* search
+	* Quote forms
+- Dashboard
+	- DataLayer/*
+		- Playground
+			* home
+		- Oneclick
+			* home
+			* usecases
+		- Oregon
+			* home
+			* usecases
+
+1.) 
+	
+	
+	
+	
+	
+	
 
 2.) Oneclick
 	dataLayerService
@@ -28,6 +49,54 @@ a.) codeWidget
 	codeBlockBody
 	codeOutput
 	codeCalltoAction
+
+	appComponent
+	Dashboard
+	Layout/
+		content
+		footer
+		header
+		sidebar
+	khub/
+		kBase
+			dashboard
+				analyticsPattern
+				solutionDesign
+		kodeGen
+		kodePlayground
+		bauTools
+			dashboard
+				pidGen
+				cidGen
+				fidGen
+				prodCatalog(classification)
+				requirement/request form? 
+	dataLayer/
+		dashboard
+			repository
+			playground
+				oneclickDemo
+				oregonDemo
+			productListByForm
+			productCatalog
+			activityIDMapping
+			dlTOdoubleclickdemo
+
+	dtm/
+		arch
+		playground
+	
+}
+
+
+playground
+	TestPage Home
+	oneclickDemo
+	oregonDemo
+	
+	TestPage: Multi brand test page
+	A different module al together? 
+	
 	
 
 ## Development server
