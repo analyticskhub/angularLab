@@ -1,74 +1,182 @@
-    <div class="wrapper wrapper-content  animated fadeInRight">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="Number" value="https://www.westpac.com.au/faq/activate-my-card/" placeholder="URL" required="">
-                            <span class="input-group-addon"><i class="fa fa-link fa-fw"></i></span>
-                        </div>
-                    </div>
-                    <div class="ibox-content ibox-heading" *ngIf="pageTracked">
-                        <h3>Stock price up
-                            <div class="stat-percent text-navy">34% <i class="fa fa-level-up"></i></div>
-                        </h3>
-                        <small><i class="fa fa-stack-exchange"></i> New economic data from the previous quarter.</small>
-
-                    </div>
-
-                    <div class="ibox-content">
-                        <pre><code>{{dataLayer}}</code></pre>
-                    </div>
-                    <div class="ibox-footer">
-                        <div class="ibox-tools">
-                             <a href="#" class="btn btn-sm btn-success" (click)="nextStep()"> next step </a>
-                        </div>
-                    </div>
+<div class="row">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5>Income</h5>
+                    <h1 class="no-margins">Public</h1>
+                    <small>Primary Product</small><br>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="ibox">
-                    <div class="ibox-content">
-
-                        <p class="font-bold">
-                            Other products you may be interested
-                        </p>
-
-                        <hr/>
-                        <div>
-                            <a href="#" class="product-name"> Product 1</a>
-                            <div class="small m-t-xs">
-                                Many desktop publishing packages and web page editors now.
-                            </div>
-                            <div class="m-t text-righ">
-
-                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div>
-                            <a href="#" class="product-name"> Product 2</a>
-                            <div class="small m-t-xs">
-                                Many desktop publishing packages and web page editors now.
-                            <ul class="category-list" style="padding: 0">
-                                <li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
-                                <li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
-                                <li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
-                                <li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
-                                <li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
-                            </ul>
-
-                            </div>
-                            <div class="m-t text-righ">
-
-                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                            </div>
-                        </div>
-
-                    </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5>Income last month</h5>
+                    <h1 class="no-margins">Pub-Auth</h1>
+                    <small>Public to Authenticated usecases</small>
                 </div>
-
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5>Income last day</h5>
+                    <h1 class="no-margins">Exceptions</h1>
+                    <small>Exception and Errors</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h5>Income all</h5>
+                    <h1 class="no-margins">54,200</h1>
+                    <small>Total income</small>
+                </div>
             </div>
         </div>
     </div>
-    <router-outlet></router-outlet>
+</div>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h5>Public Journey usecases</h5>
+                <table class="table table-stripped small m-t-md">
+                    <tbody>
+                        <tr>
+                            <td class="no-borders">
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td class="no-borders">
+                                Primary prouct
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td>
+                                Primary and Secondary product
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td>
+                                Example element 3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h5>Alerts</h5>
+                <table class="table table-stripped small m-t-md">
+                    <tbody>
+                        <tr>
+                            <td class="no-borders">
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td class="no-borders">
+                                Example element 1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td>
+                                Example element 2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-navy"></i>
+                            </td>
+                            <td>
+                                Example element 3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h5>All messages</h5>
+                <table class="table table-stripped small m-t-md">
+                    <tbody>
+                        <tr>
+                            <td class="no-borders">
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td class="no-borders">
+                                Example element 1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td>
+                                Example element 2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td>
+                                Example element 3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h5>Last notification</h5>
+                <table class="table table-stripped small m-t-md">
+                    <tbody>
+                        <tr>
+                            <td class="no-borders">
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td class="no-borders">
+                                Example element 1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td>
+                                Example element 2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-circle text-danger"></i>
+                            </td>
+                            <td>
+                                Example element 3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
