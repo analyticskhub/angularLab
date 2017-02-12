@@ -1,0 +1,74 @@
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="Number" value="https://www.westpac.com.au/faq/activate-my-card/" placeholder="URL" required="">
+                            <span class="input-group-addon"><i class="fa fa-link fa-fw"></i></span>
+                        </div>
+                    </div>
+                    <div class="ibox-content ibox-heading" *ngIf="pageTracked">
+                        <h3>Stock price up
+                            <div class="stat-percent text-navy">34% <i class="fa fa-level-up"></i></div>
+                        </h3>
+                        <small><i class="fa fa-stack-exchange"></i> New economic data from the previous quarter.</small>
+
+                    </div>
+
+                    <div class="ibox-content">
+                        <pre><code>{{dataLayer}}</code></pre>
+                    </div>
+                    <div class="ibox-footer">
+                        <div class="ibox-tools">
+                             <a href="#" class="btn btn-sm btn-success" (click)="nextStep()"> next step </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+
+                        <p class="font-bold">
+                            Other products you may be interested
+                        </p>
+
+                        <hr/>
+                        <div>
+                            <a href="#" class="product-name"> Product 1</a>
+                            <div class="small m-t-xs">
+                                Many desktop publishing packages and web page editors now.
+                            </div>
+                            <div class="m-t text-righ">
+
+                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div>
+                            <a href="#" class="product-name"> Product 2</a>
+                            <div class="small m-t-xs">
+                                Many desktop publishing packages and web page editors now.
+                            <ul class="category-list" style="padding: 0">
+                                <li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
+                            </ul>
+
+                            </div>
+                            <div class="m-t text-righ">
+
+                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
