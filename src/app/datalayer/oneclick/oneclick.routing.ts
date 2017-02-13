@@ -4,17 +4,16 @@ import { ModuleWithProviders }  from '@angular/core';
 
 //import the core components from components directory
 import {OneclickHomeComponent} from './home/home.component'
-
+import { OneclickpatternComponent } from './oneclickpattern/oneclickpattern.component';
 
 const OneclickRoutes: Routes = [
   {
     path: "",
     component: OneclickHomeComponent,
-    children: [
-      /*
-      { path: "", component: SubHomeComponent }
-      */
-    ]
+  },
+  {
+    path: "data/wow/usecase/:type",
+    component: OneclickpatternComponent,
   },
 ];
 
