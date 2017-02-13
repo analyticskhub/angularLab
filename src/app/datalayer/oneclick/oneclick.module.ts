@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {OneclickRouting} from './oneclick.routing'
 import { OneclickHomeComponent } from './home/home.component';
 import { OneclickpatternComponent } from './oneclickpattern/oneclickpattern.component';
+import {OneclickService} from './service/oneclickservice.service'
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { OneclickpatternComponent } from './oneclickpattern/oneclickpattern.comp
         OneclickpatternComponent
     ],
     exports: [OneclickHomeComponent, OneclickpatternComponent],
-    providers: []
+    providers: [OneclickService]
 })
 export class OneclickModule { }

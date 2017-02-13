@@ -12,7 +12,7 @@ const OneclickRoutes: Routes = [
     component: OneclickHomeComponent,
   },
   {
-    path: "data/wow/usecase/:type",
+    path: "usecase/:journey/:step",
     component: OneclickpatternComponent,
   },
 ];
