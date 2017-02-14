@@ -41,6 +41,21 @@ export class OneclickpatternComponent implements OnInit {
     this.stepUrl = this.contextUrl + this.step;
   }
   // try this approach, this way you can name the step route differently 
+  /* or this approach 
+
+    Import the angular router
+
+    import { Router } from '@angular/router';
+    Create a button with click event
+
+    <div (click)="redirect(my-page)">My page</div>
+    Create a method with a pagename parameter
+
+    redirect(pagename: string) {
+      this.router.navigate(['/'+pagename]);
+}
+
+  */
   nextStep(routeparam: string) {
     this.router.navigate(['./' + routeparam]);
   }
