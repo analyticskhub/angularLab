@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import {Observer} from 'rxjs/Observer';
+import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/map';
-import {contLoc} from '../model/oneclick.interface'
-import {siteVars} from '../model/oneclick.interface'
-import {locationObj} from '../model/oneclick.interface'
+import { contLoc } from '../model/oneclick.interface'
+import { sVars } from '../model/oneclick.interface'
+import { locationObj } from '../model/oneclick.interface'
 
 @Injectable()
 export class OneclickService {
 
 
   constructor() { }
-  step:string;
+  step: string;
   dataLayer: Object = {
     'mockUpVersion': '0.1'
   };
@@ -26,7 +26,7 @@ export class OneclickService {
       isProd: boolean,
       sectionArray: string[],
       contextLoc: contLoc,
-      siteVars: siteVars = {
+      siteVars: sVars = {
         'dLayerVer': '1.0'
       },
       pseudoLoc: locationObj;
@@ -55,34 +55,40 @@ export class OneclickService {
     isWestpac = /westpac/i.test(pseudoLoc.hostname);
     isProd = /www.westpac.com.au/i.test(pseudoLoc.hostname);
     if (isWestpac) {
-      siteVars.site_brand = 'wbc';
-      siteVars.site_name = 'wbc:www';
+      siteVars.siteBrand = 'wbc';
+      siteVars.siteName = 'oneclick';
     }
     if (isProd) {
-      siteVars.site_env = 'prod';
+      siteVars.siteEnv = 'prod';
     } else {
-      siteVars.site_env = 'dev';
+      siteVars.siteEnv = 'dev';
     }
 
     sectionArray = pseudoLoc.pathname.split('/');
     // set details from path
-    siteVars.site_domain = pseudoLoc.hostname;
-    siteVars.site_version = 'aem.1.332.2';
-    siteVars.site_family = sectionArray[1];
+    siteVars.siteDomain = pseudoLoc.hostname;
+    siteVars.siteVersion = 'oneclick.1.332.2';
+    siteVars.siteSection = sectionArray[1];
     if (sectionArray[2]) {
-      siteVars.site_section = sectionArray[2];
+      siteVars.siteSubSection = sectionArray[2];
     }
     return siteVars;
 
   }
-    //createDataLayer called in component 
-  createDataLayer(step:string, url:string) {
+  //createDataLayer called in component 
+  createDataLayer(step: string, url: string) {
     this.step = step;
     this.contextUrl = url;
 
     switch (this.step) {
 
       case 'welcome':
+
+        console.info(this.step)
+        this.dataLayer = this.setCommonVars(this.contextUrl);
+        //TODO
+        break;
+      case 'CustomerDetails':
 
         console.info(this.step)
         this.dataLayer = this.setCommonVars(this.contextUrl);

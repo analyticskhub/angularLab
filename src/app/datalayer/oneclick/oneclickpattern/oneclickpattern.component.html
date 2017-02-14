@@ -1,3 +1,93 @@
-<p>
-  oneclickpattern works!
-</p>
+<app-content>
+    <!-- Navigation -->
+    <app-sidebar></app-sidebar>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- Page wrapper -->
+        <app-header></app-header>
+        <!-- Main view  -->
+        <div class="wrapper wrapper-content">
+    <div class="animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="Number" value={{stepUrl}} placeholder="URL" required="">
+                            <span class="input-group-addon"><i class="fa fa-link fa-fw"></i></span>
+                        </div>
+                    </div>
+                    <div class="ibox-content ibox-heading" *ngIf="pageTracked">
+                        <h3>Stock price up
+                            <div class="stat-percent text-navy">34% <i class="fa fa-level-up"></i></div>
+                        </h3>
+                        <small><i class="fa fa-stack-exchange"></i> New economic data from the previous quarter.</small>
+
+                    </div>
+
+                    <div class="ibox-content">
+                        <pre><code>{{dataLayer}}</code></pre>
+                    </div>
+                    <div class="ibox-footer">
+                        <div class="ibox-tools">
+                             <a [routerLink]="['/datalayer/oneclick/usecase', 'pub', previousStepRoute]" class="btn btn-w-m btn-primary"> <i class="fa fa-chevron-left"></i> {{previousStepRoute}}</a>
+                             <a [routerLink]="['/datalayer/oneclick/usecase', 'pub', nextStepRoute]" class="btn btn-w-m btn-primary"> <i class="fa fa-chevron-right"></i> {{nextStepRoute}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+
+                        <p class="font-bold">
+                            Other products you may be interested
+                        </p>
+
+                        <hr/>
+                        <div>
+                            <a href="#" class="product-name"> Product 1</a>
+                            <div class="small m-t-xs">
+                                Many desktop publishing packages and web page editors now.
+                            </div>
+                            <div class="m-t text-righ">
+
+                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div>
+                            <a href="#" class="product-name"> Product 2</a>
+                            <div class="small m-t-xs">
+                                Many desktop publishing packages and web page editors now.
+                            <ul class="category-list" style="padding: 0">
+                                <li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
+                                <li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
+                            </ul>
+
+                            </div>
+                            <div class="m-t text-righ">
+
+                                <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+                </div>
+            <!-- Footer -->
+            <app-footer></app-footer>
+        </div>
+        <!-- End page wrapper-->
+
+        <!-- Right Sidebar -->
+</app-content>

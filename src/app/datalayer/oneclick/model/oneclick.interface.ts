@@ -12,18 +12,16 @@ export interface locationObj {
   hash: string;
 }
 
-export interface siteVars {
-  site_brand?: string;
-  site_name?: string;
-  site_env?: string;
-  site_section?: string;
+export interface sVars {
+  siteBrand?: string;
+  siteName?: string;
+  siteEnv?: string;
+  siteSection?: string;
   dLayerVer?: string;
-  site_domain?: string;
-  site_version?: string;
-  site_family?: string;
-  site_subsection?: string;
-  site_subsubsection?: string;
-
+  siteDomain?: string;
+  siteVersion?: string;
+  siteSubSection?: string;
+  siteSubSubSection?: string;
 }
 
  export interface contLoc {
