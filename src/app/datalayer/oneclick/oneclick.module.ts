@@ -5,11 +5,16 @@ import { OneclickHomeComponent } from './home/home.component';
 import { OneclickpatternComponent } from './oneclickpattern/oneclickpattern.component';
 import {OneclickService} from './service/oneclickservice.service'
 
+import {LayoutModule} from '../../layout/layout.module';
+
+
 
 @NgModule({
     imports: [
         CommonModule,
-        OneclickRouting
+        OneclickRouting, 
+        LayoutModule
+
     ],
     declarations: [
         OneclickHomeComponent,

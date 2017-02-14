@@ -1,281 +1,300 @@
-<div class="row">
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income</h5>
-                    <h1 class="no-margins">Public</h1>
-                    <small>Primary Product</small><br>
+<app-content>
+    <!-- Navigation -->
+    <app-sidebar></app-sidebar>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- Page wrapper -->
+        <app-header></app-header>
+        <!-- Main view  -->
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="col-lg-3">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <h5>Income</h5>
+                                <h1 class="no-margins">Public</h1>
+                                <small>Primary Product</small><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <h5>Income last month</h5>
+                                <h1 class="no-margins">Pub-Auth</h1>
+                                <small>Public to Authenticated usecases</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <h5>Income last day</h5>
+                                <h1 class="no-margins">Exceptions</h1>
+                                <small>Exception and Errors</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <h5>Income all</h5>
+                                <h1 class="no-margins">54,200</h1>
+                                <small>Total income</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income last month</h5>
-                    <h1 class="no-margins">Pub-Auth</h1>
-                    <small>Public to Authenticated usecases</small>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h5>Public Journey usecases</h5>
+                            <table class="table table-stripped small m-t-md">
+                                <tbody>
+                                    <tr>
+                                        <td class="no-borders">
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td class="no-borders">
+                                            Primary prouct
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td>
+                                            Primary and Secondary product
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td>
+                                            Example element 3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h5>Alerts</h5>
+                            <table class="table table-stripped small m-t-md">
+                                <tbody>
+                                    <tr>
+                                        <td class="no-borders">
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td class="no-borders">
+                                            Example element 1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td>
+                                            Example element 2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-navy"></i>
+                                        </td>
+                                        <td>
+                                            Example element 3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h5>All messages</h5>
+                            <table class="table table-stripped small m-t-md">
+                                <tbody>
+                                    <tr>
+                                        <td class="no-borders">
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td class="no-borders">
+                                            Example element 1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td>
+                                            Example element 2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td>
+                                            Example element 3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h5>Last notification</h5>
+                            <table class="table table-stripped small m-t-md">
+                                <tbody>
+                                    <tr>
+                                        <td class="no-borders">
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td class="no-borders">
+                                            Example element 1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td>
+                                            Example element 2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-circle text-danger"></i>
+                                        </td>
+                                        <td>
+                                            Example element 3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income last day</h5>
-                    <h1 class="no-margins">Exceptions</h1>
-                    <small>Exception and Errors</small>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox" id="ibox1">
+                        <div class="ibox-title">
+                            <h5>Example ibox panel</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <ul class="sortable-list connectList agile-list ui-sortable" id="todo">
+                                <li class="warning-element" id="task1">
+                                    Simply dummy text of the printing and typesetting industry.
+                                    <div class="agile-detail">
+                                        <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
+                                        <i class="fa fa-clock-o"></i> 12.10.2015
+                                    </div>
+                                </li>
+                                <li class="success-element" id="task2">
+                                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.
+                                    <div class="agile-detail">
+                                        <a href="#" class="pull-right btn btn-xs btn-white">Mark</a>
+                                        <i class="fa fa-clock-o"></i> 05.04.2015
+                                    </div>
+                                </li>
+                                <li class="info-element" id="task3">
+                                    Sometimes by accident, sometimes on purpose (injected humour and the like).
+                                    <div class="agile-detail">
+                                        <a href="#" class="pull-right btn btn-xs btn-white">Mark</a>
+                                        <i class="fa fa-clock-o"></i> 16.11.2015
+                                    </div>
+                                </li>
+                                <li class="danger-element" id="task4">
+                                    All the Lorem Ipsum generators
+                                    <div class="agile-detail">
+                                        <a href="#" class="pull-right btn btn-xs btn-primary">Done</a>
+                                        <i class="fa fa-clock-o"></i> 06.10.2015
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h5>Income all</h5>
-                    <h1 class="no-margins">54,200</h1>
-                    <small>Total income</small>
+
+                <div class="col-lg-6">
+                    <div class="ibox" id="ibox2">
+                        <div class="ibox-title">
+                            <h5>Example ibox panel</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitat. Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitat. Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                veniam, quis nostrud exercitat.
+                            </p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Tom</td>
+                                        <td>Bortec</td>
+                                        <td>@mader</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-3">
-        <div class="ibox">
-            <div class="ibox-content">
-                <h5>Public Journey usecases</h5>
-                <table class="table table-stripped small m-t-md">
-                    <tbody>
-                        <tr>
-                            <td class="no-borders">
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td class="no-borders">
-                                Primary prouct
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td>
-                                Primary and Secondary product
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td>
-                                Example element 3
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="ibox">
-            <div class="ibox-content">
-                <h5>Alerts</h5>
-                <table class="table table-stripped small m-t-md">
-                    <tbody>
-                        <tr>
-                            <td class="no-borders">
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td class="no-borders">
-                                Example element 1
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td>
-                                Example element 2
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-navy"></i>
-                            </td>
-                            <td>
-                                Example element 3
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="ibox">
-            <div class="ibox-content">
-                <h5>All messages</h5>
-                <table class="table table-stripped small m-t-md">
-                    <tbody>
-                        <tr>
-                            <td class="no-borders">
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td class="no-borders">
-                                Example element 1
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td>
-                                Example element 2
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td>
-                                Example element 3
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="ibox">
-            <div class="ibox-content">
-                <h5>Last notification</h5>
-                <table class="table table-stripped small m-t-md">
-                    <tbody>
-                        <tr>
-                            <td class="no-borders">
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td class="no-borders">
-                                Example element 1
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td>
-                                Example element 2
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fa fa-circle text-danger"></i>
-                            </td>
-                            <td>
-                                Example element 3
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="ibox" id="ibox1">
-            <div class="ibox-title">
-                <h5>Example ibox panel</h5>
-            </div>
-            <div class="ibox-content">
-                <ul class="sortable-list connectList agile-list ui-sortable" id="todo">
-                    <li class="warning-element" id="task1">
-                        Simply dummy text of the printing and typesetting industry.
-                        <div class="agile-detail">
-                            <a href="#" class="pull-right btn btn-xs btn-white">Tag</a>
-                            <i class="fa fa-clock-o"></i> 12.10.2015
-                        </div>
-                    </li>
-                    <li class="success-element" id="task2">
-                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.
-                        <div class="agile-detail">
-                            <a href="#" class="pull-right btn btn-xs btn-white">Mark</a>
-                            <i class="fa fa-clock-o"></i> 05.04.2015
-                        </div>
-                    </li>
-                    <li class="info-element" id="task3">
-                        Sometimes by accident, sometimes on purpose (injected humour and the like).
-                        <div class="agile-detail">
-                            <a href="#" class="pull-right btn btn-xs btn-white">Mark</a>
-                            <i class="fa fa-clock-o"></i> 16.11.2015
-                        </div>
-                    </li>
-                    <li class="danger-element" id="task4">
-                        All the Lorem Ipsum generators
-                        <div class="agile-detail">
-                            <a href="#" class="pull-right btn btn-xs btn-primary">Done</a>
-                            <i class="fa fa-clock-o"></i> 06.10.2015
-                        </div>
-                    </li>
-                </ul>
 
             </div>
         </div>
+        <!-- Footer -->
+        <app-footer></app-footer>
     </div>
+    <!-- End page wrapper-->
 
-    <div class="col-lg-6">
-        <div class="ibox" id="ibox2">
-            <div class="ibox-title">
-                <h5>Example ibox panel</h5>
-            </div>
-            <div class="ibox-content">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitat. Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
-                </p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Tom</td>
-                            <td>Bortec</td>
-                            <td>@mader</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-
+    <!-- Right Sidebar -->
+</app-content>
 <router-outlet></router-outlet>

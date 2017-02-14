@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+/*
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ContentComponent } from './layout/content/content.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+*/
+//import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 
@@ -18,16 +20,18 @@ import { routing, appRoutingProviders } from './app.routes';
 //import {PlaygroundModule} from './datalayer/playground/playground.module';
 //import {OneclickModule} from './datalayer/oneclick/oneclick.module';
 //import {OregonModule} from './datalayer/oregon/oregon.module';
+import {LayoutModule} from './layout/layout.module';
+import {DashboardModule} from './dashboard/dashboard.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent,
-    ContentComponent,
-    DashboardComponent,
+    //HeaderComponent,
+    //SidebarComponent,
+    //FooterComponent,
+    //ContentComponent,
+   //DashboardComponent,
     NotfoundComponent
   ],
   imports: [
@@ -35,6 +39,8 @@ import { routing, appRoutingProviders } from './app.routes';
     FormsModule,
     HttpModule,
     routing,
+    LayoutModule,
+    DashboardModule
     //PlaygroundModule,
     //OneclickModule,
     //OregonModule

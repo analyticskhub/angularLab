@@ -1,4 +1,15 @@
-    <div class="wrapper wrapper-content  animated fadeInRight">
+<app-content>
+    <!-- Navigation -->
+    <app-sidebar></app-sidebar>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- Page wrapper -->
+        <app-header></app-header>
+        <!-- Main view  -->
+        <div class="wrapper wrapper-content">
+    <div class="animated fadeInRight">
         <div class="row">
             <div class="col-lg-8">
                 <div class="ibox">
@@ -71,4 +82,12 @@
             </div>
         </div>
     </div>
+                </div>
+            <!-- Footer -->
+            <app-footer></app-footer>
+        </div>
+        <!-- End page wrapper-->
+
+        <!-- Right Sidebar -->
+</app-content>
     <router-outlet></router-outlet>
