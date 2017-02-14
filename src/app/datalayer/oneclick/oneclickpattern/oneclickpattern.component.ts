@@ -40,8 +40,9 @@ export class OneclickpatternComponent implements OnInit {
     this.dataLayer = JSON.stringify(this._dataLayerService.createDataLayer(step, url), null, 4);
     this.stepUrl = this.contextUrl + this.step;
   }
-
+  // try this approach, this way you can name the step route differently 
   nextStep(routeparam: string) {
+    this.router.navigate(['./' + routeparam]);
   }
 
   userJourneySteps(currentstep: string, journeytype: string) {
