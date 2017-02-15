@@ -70,7 +70,7 @@ export class OneclickpatternComponent implements OnInit {
 
       case 'pub:welcome':
         this.nextStepRoute = 'CustomerDetails'
-        //this.previousStepRoute = 'OnceclickHome'
+        this.previousStepRoute = 'UsecaseHome'
         //TODO
         break;
       case 'pub:CustomerDetails':
