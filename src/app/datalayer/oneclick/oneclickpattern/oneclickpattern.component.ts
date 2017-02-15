@@ -56,10 +56,13 @@ export class OneclickpatternComponent implements OnInit {
 }
 
   */
-  nextStep(routeparam: string) {
-    this.router.navigate(['./' + routeparam]);
+  nextStep(pagename: string) {
+    this.router.navigate(['/' +pagename]);
   }
 
+  previousStep(pagename: string) {
+    this.router.navigate(['/datalayer/oneclick/usecase', 'pub', + pagename]);
+  }
   userJourneySteps(currentstep: string, journeytype: string) {
 
     let currentFlow = journeytype + ':' + currentstep;
@@ -67,12 +70,32 @@ export class OneclickpatternComponent implements OnInit {
 
       case 'pub:welcome':
         this.nextStepRoute = 'CustomerDetails'
-        this.previousStepRoute = 'OnceclickHome'
+        //this.previousStepRoute = 'OnceclickHome'
         //TODO
         break;
       case 'pub:CustomerDetails':
-        this.nextStepRoute = 'CustomerDetails'
+        this.nextStepRoute = 'IdentificationRequired'
         this.previousStepRoute = 'welcome'
+        //TODO
+        break;
+              case 'pub:IdentificationRequired':
+        this.nextStepRoute = 'Review'
+        this.previousStepRoute = 'CustomerDetails'
+        //TODO
+        break;
+              case 'pub:Review':
+        this.nextStepRoute = 'Progress'
+        this.previousStepRoute = 'IdentificationRequired'
+        //TODO
+        break;
+              case 'pub:Progress':
+        this.nextStepRoute = 'Thankyou'
+        this.previousStepRoute = 'Review'
+        //TODO
+        break;
+              case 'pub:Thankyou':
+        this.nextStepRoute = 'welcome'
+        this.previousStepRoute = 'Progress'
         //TODO
         break;
     }
