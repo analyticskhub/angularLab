@@ -23,267 +23,281 @@ export class OneclickService {
   contextUrl: string;
   commonVars: any;
 
-
-  setCommonVars(url: string, config: datalayer) {
-    //declare all local variables here
-    let el: HTMLAnchorElement,
-      isWestpac: boolean,
-      isProd: boolean,
-      sectionArray: string[],
-      contextLoc: contLoc,
-      commonVars: datalayer = {
-        'dLayerVer': '1.0'
-      },
-      otherVars: Object,
-      deviceOS: string,
-      pseudoLoc: locationObj;
+  /*
+  Utility functions
+  */
+  _window = function(): any {
+  // return the native window obj
+  return window;
+}
 
 
-    //use the URL to create pseudo location vars
-    el = document.createElement('a');
-    el.href = url;
-    console.info('el.href', el.href);
-    pseudoLoc = {
-      href: el.href,
-      protocol: el.protocol,
-      hostname: el.hostname,
-      pathname: el.pathname,
-      search: el.search,
-      hash: el.hash
-    };
+setCommonVars(url: string, config: datalayer) {
+  //declare all local variables here
+  let el: HTMLAnchorElement,
+    isWestpac: boolean,
+    isProd: boolean,
+    sectionArray: string[],
+    contextLoc: contLoc,
+    commonVars: datalayer = {
+      'dLayerVer': '1.0'
+    },
+    otherVars: Object,
+    deviceOS: string,
+    pseudoLoc: locationObj,
+    windowObj:any;
 
-    contextLoc = {
-      location: pseudoLoc
-    }
 
-    // update window variable for s_code
-    //window.testTracking = contextLoc;
-    // update the s_code test object to use contextURl
-    //window.s.w_wtT = contextLoc;
-    // set prod, host and domain info
-    isWestpac = /westpac/i.test(pseudoLoc.hostname);
-    isProd = /www.westpac.com.au/i.test(pseudoLoc.hostname);
-    if (isWestpac) {
-      commonVars.siteBrand = 'wbc';
-      commonVars.siteName = 'oneclick';
-    }
-    if (isProd) {
-      commonVars.siteEnv = 'prod';
-    } else {
-      commonVars.siteEnv = 'dev';
-    }
+  //use the URL to create pseudo location vars
+  el = document.createElement('a');
+  el.href = url;
+  console.info('el.href', el.href);
+  pseudoLoc = {
+    href: el.href,
+    protocol: el.protocol,
+    hostname: el.hostname,
+    pathname: el.pathname,
+    search: el.search,
+    hash: el.hash
+  };
 
-    sectionArray = pseudoLoc.pathname.split('/');
-    // set details from path
-    commonVars.siteDomain = pseudoLoc.hostname;
-    commonVars.siteVersion = 'oneclick.1.332.2';
-    commonVars.siteSection = sectionArray[1];
-    if (sectionArray[2]) {
-      commonVars.siteSubSection = sectionArray[2];
-    }
-
-    if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) {
-      deviceOS = "Windows 7"
-    }
-    otherVars = {
-      "siteExperience": "desktop",
-      "formIsSTP": "true",
-      "formVariant": config.formVariant,
-      "newFormName": "cons:st", //newformName dict
-      "journeyType": config.journeyType,
-      "accountType": "single",
-      //"businessType": "sole-trader",
-      "trackOnce": "true",
-      "userSuburb": config.userSuburb,
-      "userState": config.userState,
-      "userPostCode": config.userPostCode,
-      "deviceOs": deviceOS,
-      "fldActivityId": config.fldActivityId,
-      "fldActvityConfigId": config.fldActvityConfigId,
-      "eventKey": config.eventKey,
-      "pageType": config.pageType,
-      "pageStep": config.pageStep,
-      "pageName": config.pageName,
-      "prodDescription": config.prodDescription
-    }
-    commonVars = Object.assign(commonVars, otherVars)
-    return commonVars;
-
+  contextLoc = {
+    location: pseudoLoc
   }
-  //createDataLayer called in component 
-  createDataLayer(step: string, url: string) {
-    let current_step = step,
-      context_url = url;
+  console.info('contextloc', contextLoc)
 
-    switch (current_step) {
+  windowObj = this._window();
 
-      case 'welcome':
-        this.purgeDataLayer();
-        let common_vars: Object,
-          config: Object;
-        //console.info(this.step)
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageStep": "welcome",
-          "pageType": "application",
-          "pageName": "welcome"
-        }
+  // update window variable for s_code
+  windowObj.testTracking = pseudoLoc;
+  // update the s_code test object to use contextURl
+  windowObj.w_wtT = pseudoLoc;
+  windowObj.util.w_wtT = contextLoc;
+  // set prod, host and domain info
+  isWestpac = /westpac/i.test(pseudoLoc.hostname);
+  isProd = /www.westpac.com.au/i.test(pseudoLoc.hostname);
+  if (isWestpac) {
+    commonVars.siteBrand = 'wbc';
+    commonVars.siteName = 'oneclick';
+  }
+  if (isProd) {
+    commonVars.siteEnv = 'prod';
+  } else {
+    commonVars.siteEnv = 'dev';
+  }
 
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars)
-        //TODO
-        break;
-      case 'CustomerDetails':
-        this.purgeDataLayer();
-        //console.info(this.step)
-        var user_vars: any,
-          product_vars: any;
+  sectionArray = pseudoLoc.pathname.split('/');
+  // set details from path
+  commonVars.siteDomain = pseudoLoc.hostname;
+  commonVars.siteVersion = 'oneclick.1.332.2';
+  commonVars.siteSection = sectionArray[1];
+  if (sectionArray[2]) {
+    commonVars.siteSubSection = sectionArray[2];
+  }
 
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "fldActivityId": "9832111",
-          "fldActvityConfigId": "abcxyz999",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageStep": "start",
-          "pageType": "application",
-          "pageName": "customer-details",
-          "userSuburb": "newtown",
-          "userState": "nsw",
-          "userPostCode": "2201",
-        }
+  if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) {
+    deviceOS = "Windows 7"
+  }
+  otherVars = {
+    "siteExperience": "desktop",
+    "formIsSTP": "true",
+    "formVariant": config.formVariant,
+    "newFormName": "cons:st", //newformName dict
+    "journeyType": config.journeyType,
+    "accountType": "single",
+    //"businessType": "sole-trader",
+    "XtrackOnce": "true",
+    "userSuburb": config.userSuburb,
+    "userState": config.userState,
+    "userPostCode": config.userPostCode,
+    "deviceOs": deviceOS,
+    "fldActivityId": config.fldActivityId,
+    "fldActvityConfigId": config.fldActvityConfigId,
+    "eventKey": config.eventKey,
+    "pageType": config.pageType,
+    "pageStep": config.pageStep,
+    "pageName": config.pageName,
+    "prodDescription": config.prodDescription
+  }
+  commonVars = Object.assign(commonVars, otherVars)
+  return commonVars;
 
-        product_vars = {
-          prodDescription: "choice",
-          "productID": [
-            {
-              "prod": "13d46777ec304eadb673f30ed0487f99",
-              "family": "personal",
-              "category": "bank-accounts",
-              "subcategory": "transaction",
-              "name": "choice",
-              "qty": "1"
-            }
-          ]
-        }
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars, product_vars)
-        //TODO
-        break;
-      case 'IdentificationRequired':
-        this.purgeDataLayer();
-        //console.info(this.step)
-        var user_vars: any;
+}
+//createDataLayer called in component 
+createDataLayer(step: string, url: string) {
+  let current_step = step,
+    context_url = url;
+    let _windowObj = this._window();
 
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageType": "application",
-          "pageName": "id-verification",
-          prodDescription: "choice",
-        }
+  switch (current_step) {
 
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars)
-        break;
-      case 'Review':
-        this.purgeDataLayer();
-        //console.info(this.step)
-        var user_vars: any;
+    case 'welcome':
+      this.purgeDataLayer();
+      let common_vars: Object,
+        config: Object;
+      //console.info(this.step)
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageStep": "welcome",
+        "pageType": "application",
+        "pageName": "welcome"
+      }
 
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageType": "application",
-          "pageName": "review",
-          prodDescription: "choice",
-        }
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars)
+      //TODO
+      break;
+    case 'CustomerDetails':
+      this.purgeDataLayer();
+      //console.info(this.step)
+      var user_vars: any,
+        product_vars: any;
 
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars)
-        //TODO
-        break;
-      case 'Progress':
-        this.purgeDataLayer();
-        //console.info(this.step)
-        var user_vars: any;
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "fldActivityId": "9832111",
+        "fldActvityConfigId": "abcxyz999",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageStep": "start",
+        "pageType": "application",
+        "pageName": "customer-details",
+        "userSuburb": "newtown",
+        "userState": "nsw",
+        "userPostCode": "2201",
+      }
 
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageType": "application",
-          "pageName": "progress",
-          prodDescription: "choice",
-        }
-
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars)
-        //TODO
-        break;
-      case 'Thankyou':
-        this.purgeDataLayer();
-        //console.info(this.step)
-        var user_vars: any,
-          product_vars: any,
-          form_vars: Object;
-
-        config = {
-          "formVariant": "activate",
-          "journeyType": "pub",
-          "fldActivityId": "9833344",
-          "fldActvityConfigId": "abcxyz999",
-          "eventKey": "wbc:application_oneclick_cons:cc_pageName",
-          "pageStep": "complete",
-          "pageType": "application",
-          "pageName": "thank-you",
-        }
-
-        product_vars = {
-          "prodDescription": "choice",
-          "productID": [
-            {
-              "prod": "13d46777ec304eadb673f30ed0487f99",
-              "family": "personal",
-              "category": "bank-accounts",
-              "subcategory": "transaction",
-              "name": "choice",
-              "qty": "1",
-            }
-          ]
-        }
-
-        form_vars = {
-          "formStatus": "approved",
-          "promoCode": "323232323ass",
-          "conversionValue": "1500",
-          "productCount": "1",
-          "retrievedApp": "true",
-          "resourceKind" : "value",
-          "appReference": [{
+      product_vars = {
+        prodDescription: "choice",
+        "productID": [
+          {
             "prod": "13d46777ec304eadb673f30ed0487f99",
-            "Id": "ebabasdfsdfasdfasdf34343"
+            "family": "personal",
+            "category": "bank-accounts",
+            "subcategory": "transaction",
+            "name": "choice",
+            "qty": "1"
           }
-          ],
-          "applicationStatus": [{ // on complete && only if STP form
-            "accountStatus": "opened",
-            "profileStatus": "created",
-            "verificationStatus": "idv",
-            "exceptionCode": "0001"
-          }
-          ],
+        ]
+      }
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars, product_vars)
+      //TODO
+      break;
+    case 'IdentificationRequired':
+      this.purgeDataLayer();
+      //console.info(this.step)
+      var user_vars: any;
 
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageType": "application",
+        "pageName": "id-verification",
+        prodDescription: "choice",
+      }
+
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars)
+      break;
+    case 'Review':
+      this.purgeDataLayer();
+      //console.info(this.step)
+      var user_vars: any;
+
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageType": "application",
+        "pageName": "review",
+        prodDescription: "choice",
+      }
+
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars)
+      //TODO
+      break;
+    case 'Progress':
+      this.purgeDataLayer();
+      //console.info(this.step)
+      var user_vars: any;
+
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageType": "application",
+        "pageName": "progress",
+        prodDescription: "choice",
+      }
+
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars)
+      //TODO
+      break;
+    case 'Thankyou':
+      this.purgeDataLayer();
+      //console.info(this.step)
+      var user_vars: any,
+        product_vars: any,
+        form_vars: Object;
+
+      config = {
+        "formVariant": "activate",
+        "journeyType": "pub",
+        "fldActivityId": "9833344",
+        "fldActvityConfigId": "abcxyz999",
+        "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
+        "pageStep": "complete",
+        "pageType": "application",
+        "pageName": "thank-you",
+      }
+
+      product_vars = {
+        "prodDescription": "choice",
+        "productID": [
+          {
+            "prod": "13d46777ec304eadb673f30ed0487f99",
+            "family": "personal",
+            "category": "bank-accounts",
+            "subcategory": "transaction",
+            "name": "choice",
+            "qty": "1",
+          }
+        ]
+      }
+
+      form_vars = {
+        "formStatus": "approved",
+        "promoCode": "323232323ass",
+        "conversionValue": "1500",
+        "productCount": "1",
+        "retrievedApp": "true",
+        "resourceKind": "value",
+        "appReference": [{
+          "prod": "13d46777ec304eadb673f30ed0487f99",
+          "Id": "ebabasdfsdfasdfasdf34343"
         }
-        common_vars = this.setCommonVars(context_url, config);
-        this.dataLayer = Object.assign(this.dataLayer, common_vars, form_vars, product_vars)
-        //TODO
-        break;
-    }
-    return this.dataLayer;
+        ],
+        "applicationStatus": [{ // on complete && only if STP form
+          "accountStatus": "opened",
+          "profileStatus": "created",
+          "verificationStatus": "idv",
+          "exceptionCode": "0001"
+        }
+        ],
+
+      }
+      common_vars = this.setCommonVars(context_url, config);
+      this.dataLayer = Object.assign(this.dataLayer, common_vars, form_vars, product_vars)
+      //TODO
+      break;
   }
+  return this.dataLayer;
+}
 
 }

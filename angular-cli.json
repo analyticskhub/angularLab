@@ -32,7 +32,8 @@
         "../src/assets/js/jquery-ui.custom.min.js",
         "../src/assets/js/pace.min.js",
         "../src/assets/js/jquery.metisMenu.js",
-        "../src/assets/js/jquery.slimscroll.min.js"
+        "../src/assets/js/jquery.slimscroll.min.js",
+        "../src/assets/js/s_code_www.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

@@ -39,6 +39,15 @@ export class OneclickpatternComponent implements OnInit {
     console.info(JSON.stringify(this._dataLayerService.createDataLayer(step, url), null, 4));
     this.dataLayer = JSON.stringify(this._dataLayerService.createDataLayer(step, url), null, 4);
     this.stepUrl = this.contextUrl + this.step;
+
+    let pushTowindow;
+    pushTowindow = this._dataLayerService._window();
+    pushTowindow.digitalData = JSON.parse(this.dataLayer);
+
+    if (pushTowindow.s3) {
+      pushTowindow.s3.w_trackPage(JSON.parse(this.dataLayer));
+    }
+
   }
   // try this approach, this way you can name the step route differently 
   /* or this approach 
@@ -57,7 +66,7 @@ export class OneclickpatternComponent implements OnInit {
 
   */
   nextStep(pagename: string) {
-    this.router.navigate(['/' +pagename]);
+    this.router.navigate(['/' + pagename]);
   }
 
   previousStep(pagename: string) {
@@ -78,22 +87,22 @@ export class OneclickpatternComponent implements OnInit {
         this.previousStepRoute = 'welcome'
         //TODO
         break;
-              case 'pub:IdentificationRequired':
+      case 'pub:IdentificationRequired':
         this.nextStepRoute = 'Review'
         this.previousStepRoute = 'CustomerDetails'
         //TODO
         break;
-              case 'pub:Review':
+      case 'pub:Review':
         this.nextStepRoute = 'Progress'
         this.previousStepRoute = 'IdentificationRequired'
         //TODO
         break;
-              case 'pub:Progress':
+      case 'pub:Progress':
         this.nextStepRoute = 'Thankyou'
         this.previousStepRoute = 'Review'
         //TODO
         break;
-              case 'pub:Thankyou':
+      case 'pub:Thankyou':
         this.nextStepRoute = 'welcome'
         this.previousStepRoute = 'Progress'
         //TODO
