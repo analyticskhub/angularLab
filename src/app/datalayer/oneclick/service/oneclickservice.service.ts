@@ -15,7 +15,7 @@ export class OneclickService {
   step: string;
   form_options: any;
   dataLayer: Object = {
-    'mockUpVersion': '0.1'
+    'mockUpVersion': 'demo_0.1'
   };
   purgeDataLayer = function () {
     this.dataLayer = {};
@@ -99,6 +99,8 @@ setCommonVars(url: string, config: datalayer) {
     deviceOS = "Windows 7"
   }
   otherVars = {
+    "mockUpVersion": "demo_0.1",
+    "analyticsTrackType" : "page",
     "siteExperience": "desktop",
     "formIsSTP": "true",
     "formVariant": config.formVariant,

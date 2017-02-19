@@ -45,7 +45,7 @@ export class OneclickpatternComponent implements OnInit {
     pushTowindow.digitalData = JSON.parse(this.dataLayer);
 
     if (pushTowindow.s3) {
-      pushTowindow.s3.w_trackPage(JSON.parse(this.dataLayer));
+      //pushTowindow.s3.w_trackPage(JSON.parse(this.dataLayer));
     }
 
   }

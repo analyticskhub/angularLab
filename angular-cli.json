@@ -21,6 +21,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../src/assets/css/main.css",
         "../src/assets/css/animate.css",
+        "../src/assets/css/awesome.bootstrap.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "styles.css"
       ],
@@ -32,8 +33,7 @@
         "../src/assets/js/jquery-ui.custom.min.js",
         "../src/assets/js/pace.min.js",
         "../src/assets/js/jquery.metisMenu.js",
-        "../src/assets/js/jquery.slimscroll.min.js",
-        "../src/assets/js/s_code_www.js"
+        "../src/assets/js/jquery.slimscroll.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
