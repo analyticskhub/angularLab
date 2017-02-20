@@ -22,6 +22,8 @@ export class OneclickService {
   };
   contextUrl: string;
   commonVars: any;
+  primaryProduct:any;
+  crossSellProduct:any;
 
   /*
   Utility functions
@@ -40,7 +42,6 @@ setCommonVars(url: string, config: datalayer) {
     sectionArray: string[],
     contextLoc: contLoc,
     commonVars: datalayer = {
-      'dLayerVer': '1.0'
     },
     otherVars: Object,
     deviceOS: string,
@@ -114,7 +115,6 @@ setCommonVars(url: string, config: datalayer) {
     "userPostCode": config.userPostCode,
     "deviceOs": deviceOS,
     "fldActivityId": config.fldActivityId,
-    "fldActvityConfigId": config.fldActvityConfigId,
     "eventKey": config.eventKey,
     "pageType": config.pageType,
     "pageStep": config.pageStep,
@@ -154,21 +154,32 @@ createDataLayer(step: string, url: string) {
     case 'CustomerDetails':
       this.purgeDataLayer();
       //console.info(this.step)
-      var user_vars: any,
+      var mktg_vars: any,
         product_vars: any;
+
+      mktg_vars = {
+        "partnerTags": {
+          "doubleclick": [{
+            "activityId": "1231212"
+          }
+          ],
+          "rocketFuel": [{
+            "rfId": "989899"
+          }
+          ]
+        }
+      }
 
       config = {
         "formVariant": "activate",
         "journeyType": "pub",
-        "fldActivityId": "9832111",
-        "fldActvityConfigId": "abcxyz999",
         "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
         "pageStep": "start",
         "pageType": "application",
         "pageName": "customer-details",
         "userSuburb": "newtown",
         "userState": "nsw",
-        "userPostCode": "2201",
+        "userPostCode": "2201"
       }
 
       product_vars = {
@@ -184,8 +195,9 @@ createDataLayer(step: string, url: string) {
           }
         ]
       }
+      this.primaryProduct = product_vars.productID[0];
       common_vars = this.setCommonVars(context_url, config);
-      this.dataLayer = Object.assign(this.dataLayer, common_vars, product_vars)
+      this.dataLayer = Object.assign(this.dataLayer, common_vars, mktg_vars, product_vars)
       //TODO
       break;
     case 'IdentificationRequired':
@@ -198,8 +210,7 @@ createDataLayer(step: string, url: string) {
         "journeyType": "pub",
         "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
         "pageType": "application",
-        "pageName": "id-verification",
-        prodDescription: "choice",
+        "pageName": "id-verification"
       }
 
       common_vars = this.setCommonVars(context_url, config);
@@ -215,8 +226,7 @@ createDataLayer(step: string, url: string) {
         "journeyType": "pub",
         "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
         "pageType": "application",
-        "pageName": "review",
-        prodDescription: "choice",
+        "pageName": "review"
       }
 
       common_vars = this.setCommonVars(context_url, config);
@@ -233,8 +243,7 @@ createDataLayer(step: string, url: string) {
         "journeyType": "pub",
         "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
         "pageType": "application",
-        "pageName": "progress",
-        prodDescription: "choice",
+        "pageName": "progress"
       }
 
       common_vars = this.setCommonVars(context_url, config);
@@ -244,23 +253,34 @@ createDataLayer(step: string, url: string) {
     case 'Thankyou':
       this.purgeDataLayer();
       //console.info(this.step)
-      var user_vars: any,
+      var mktg_vars: any,
         product_vars: any,
         form_vars: Object;
+
+
+      mktg_vars = {
+        "partnerTags": {
+          "doubleclick": [{
+            "activityId": "1231212"
+          }
+          ],
+          "rocketFuel": [{
+            "rfId": "989899"
+          }
+          ]
+        }
+      }
 
       config = {
         "formVariant": "activate",
         "journeyType": "pub",
-        "fldActivityId": "9833344",
-        "fldActvityConfigId": "abcxyz999",
         "eventKey": "wbc:application_oneclick_cons:cc_" + current_step,
         "pageStep": "complete",
         "pageType": "application",
-        "pageName": "thank-you",
+        "pageName": "thank-you"
       }
 
       product_vars = {
-        "prodDescription": "choice",
         "productID": [
           {
             "prod": "13d46777ec304eadb673f30ed0487f99",
@@ -269,20 +289,31 @@ createDataLayer(step: string, url: string) {
             "subcategory": "transaction",
             "name": "choice",
             "qty": "1",
+            "merch" : "options=eStatements"
+          },
+          {
+            "prod": "6ae599b53f774c779adf7686b95e9672",
+            "family": "personal",
+            "category": "bank-accounts",
+            "subcategory": "savings-accounts",
+            "name": "esaver",
+            "qty": "1",
+            "crossSell" : "true"
           }
         ]
       }
 
       form_vars = {
         "formStatus": "approved",
-        "promoCode": "323232323ass",
-        "conversionValue": "1500",
         "productCount": "1",
         "retrievedApp": "true",
-        "resourceKind": "value",
         "appReference": [{
           "prod": "13d46777ec304eadb673f30ed0487f99",
           "Id": "ebabasdfsdfasdfasdf34343"
+        },
+        {
+          "prod": "6ae599b53f774c779adf7686b95e9672",
+          "Id": "yyzdfdsfs8788999wwesfd"
         }
         ],
         "applicationStatus": [{ // on complete && only if STP form
@@ -295,7 +326,7 @@ createDataLayer(step: string, url: string) {
 
       }
       common_vars = this.setCommonVars(context_url, config);
-      this.dataLayer = Object.assign(this.dataLayer, common_vars, form_vars, product_vars)
+      this.dataLayer = Object.assign(this.dataLayer, common_vars, form_vars, mktg_vars, product_vars)
       //TODO
       break;
   }

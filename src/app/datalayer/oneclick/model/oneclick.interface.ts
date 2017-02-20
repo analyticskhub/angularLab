@@ -51,6 +51,7 @@ export interface datalayer {
   productID?: Object[];
   applicationStatus?: Object[];
   appReference?: Object[];
+  partnerTags?: Object[];
 }
 
 export interface contLoc {
