@@ -1,0 +1,95 @@
+<app-content>
+    <!-- Navigation -->
+    <app-sidebar></app-sidebar>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- Page wrapper -->
+        <app-header></app-header>
+        <!-- Main view  -->
+        <div class="wrapper wrapper-content">
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="product_name">Search by Product Name</label>
+                            <input type="text" id="product_name" name="product_name" value="" placeholder="Search Product Name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label" for="product_portfolio">Product Portfolio</label>
+                            <select name="product_portfolio" id="product_portfolio" class="form-control">
+                                <option value="con:dep" selected>Consumer Deposits</option>
+                                <option value="bus:dep">Business Deposits</option>
+                                <option value="bus:mer">Business Merchants</option>
+                                <option value="cons:hl">Home Lending</option>
+                                <option value="cons:fca">Forieng Currency Account</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label" for="product_family">Product Family</label>
+                            <select name="product_family" id="product_family" class="form-control">
+                                <option value="cons:transaction" selected>Transaction</option>
+                                <option value="cons:savings">Savings</option>
+                                <option value="cons:savings">Business One</option>
+                                <option value="cons:savings">Business Cash Reserve</option>
+                                <option value="cons:savings">EftPos</option>
+                                <option value="cons:savings">Mobile payments</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+
+                            <table class="table table-stripped" >
+                                <thead>
+                                  <tr>
+
+                                      <th>name</th>
+                                      <th>subcategory</th>
+                                      <th>category</th>
+                                      <th>family</th>
+                                      <th>prod</th>
+
+                                  </tr>
+                                </thead>
+                                  <tbody>
+                                    <tr>
+                                        <td>choice</td>
+                                        <td>transaction</td>
+                                        <td>bank-accounts</td>
+                                        <td>personal</td>
+                                        <td>13d46777ec304eadb673f30ed0487f99</td>
+                                    </tr>
+                                  <tr>
+                                        <td>esaver</td>
+                                        <td>savings-accounts</td>
+                                        <td>bank-accounts</td>
+                                        <td>personal</td>
+                                        <td>6ae599b53f774c779adf7686b95e9672</td>
+                                  </tr>
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <app-footer></app-footer>
+    </div>
+    <!-- End page wrapper-->
+
+    <!-- Right Sidebar -->
+</app-content>
+<router-outlet></router-outlet>

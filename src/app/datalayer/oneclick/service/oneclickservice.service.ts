@@ -114,12 +114,10 @@ setCommonVars(url: string, config: datalayer) {
     "userState": config.userState,
     "userPostCode": config.userPostCode,
     "deviceOs": deviceOS,
-    "fldActivityId": config.fldActivityId,
     "eventKey": config.eventKey,
     "pageType": config.pageType,
     "pageStep": config.pageStep,
     "pageName": config.pageName,
-    "prodDescription": config.prodDescription
   }
   commonVars = Object.assign(commonVars, otherVars)
   return commonVars;
@@ -160,7 +158,7 @@ createDataLayer(step: string, url: string) {
       mktg_vars = {
         "partnerTags": {
           "doubleclick": [{
-            "activityId": "1231212"
+            "activityId": "4472919"
           }
           ],
           "rocketFuel": [{
@@ -261,7 +259,7 @@ createDataLayer(step: string, url: string) {
       mktg_vars = {
         "partnerTags": {
           "doubleclick": [{
-            "activityId": "1231212"
+            "activityId": "4472919,4472114"
           }
           ],
           "rocketFuel": [{
