@@ -331,4 +331,129 @@ createDataLayer(step: string, url: string) {
   return this.dataLayer;
 }
 
+/*
+Step1: Remove analytics tagss
+Step1b: Remove/comment the wa function to trigger tracking.
+Instead create a window json object and update it throughout. 
+
+BankWowServices.factory("Analytics", ["config", "DeviceDetection", "$rootScope", "CookieFactory", "SessionManager", function (a, b, c, d, e) {
+			var f;
+			return {
+				trackPageView : function (b, d, e, f, g) {
+					var h;
+					h = {
+						trackDedupe : "true",
+						formName : f ? "migrant banking" : "savings transaction",
+						formType : e ? "stpbanker" : "stp",
+						pageType : "application"
+					},
+					h = "55-retired" === c.primaryAccountType && d.formStatus ? this.makeThankYouPageRequest(d, h) : angular.extend({}, h, d),
+					"wa" in window && a.ANALYTICS_ENABLED ? window.wa("page", h) : a.DEBUG && console && console.info
+          
+          // instead of checking wa function and triggering the wa function with object created (h), pass it to window scope object (window.pageDetails)
+          //"pageDetails" in window && a.ANALYTICS_ENABLED ? window.pageDetails = h : a.DEBUG && console && console.info
+          
+
+				},
+				getReferredTransactionId : function (a) {
+					if (a.transactionID)
+						f = a.transactionID;
+					else {
+						var b = d.read("WestpacID"),
+						c = new Date,
+						e = 1 === c.getDate().toString().length ? "0" + c.getDate() : c.getDate(),
+						g = 1 === (c.getMonth() + 1).toString().length ? "0" + (c.getMonth() + 1) : c.getMonth() + 1,
+						h = c.getFullYear(),
+						i = c.getHours(),
+						j = c.getMinutes(),
+						k = h + "" + g + e + " " + i + ":" + j;
+						f = void 0 === b ? "[CID:" + k + "]" : "[CID:" + b + "-" + k + "]"
+					}
+					return f
+				},
+				makeThankYouPageRequest : function (a, b) {
+					return a.exceptionCode || (a.exceptionCode = 1001),
+					"DEEMING" === a.accountType && angular.extend(b, {
+						pageName : a.pageName,
+						pageStep : a.pageStep,
+						productID : [a.productID],
+						transactionID : this.getReferredTransactionId(a),
+						formStatus : a.formStatus,
+						formCompleteStatus : [{
+								accountStatus : this.getAccountStatus(a.referred, a.exceptionType),
+								profileStatus : this.getProfileStatus(a.referred, a.exceptionType),
+								verificationStatus : a.verificationStatus,
+								exceptionCode : a.exceptionType
+							}
+						]
+					}),
+					b
+				},
+				getAccountStatus : function (a, b) {
+					return void 0 === a || null == a ? "opened" : "not_opened"
+				},
+				getProfileStatus : function (a, b) {
+					return void 0 === a || null === a ? "created" : "not_created"
+				}
+			}
+		}
+    */
+
+    /*
+    Step2: Remove Marketing Tags in oneclick
+    Comment/remove the below service 
+    
+BankWowServices.factory("PostClickTracking", ["$cookieStore", "config", "DeviceDetection", "ipCookie", "$filter", function (a, b, c, d, e) {
+			return {
+				trackPageView : function (a, f, g, h, i) {
+					void 0 === i && (i = ""),
+					void 0 === g && (g = !1);
+					var j = "",
+					k = "",
+					l = g ? "WBG_Bank_Accounts_Choice/WBG_Bank_Accounts_Esaver" : "WBG_Bank_Accounts_Choice";
+					if ("choice" === f)
+						g === !1 ? (k = h ? "M717726958591" : "717726958591",
+							l = "WBG_Bank_Accounts_Choice") : (k = h ? "M551176195931" : "551176195931",
+							l = "WBG_Bank_Accounts_Choice_eSaver");
+					else if ("rewardsaver" === f)
+						g === !1 ? (k = "455506231748",
+							l = "WBG_Bank_Accounts_Reward_Saver") : (k = "115246601297",
+							l = "WBG_Bank_Accounts_Choice_Reward_Saver_Choice");
+					else {
+						if ("esaver" !== f)
+							return;
+						k = "966942816244",
+						l = "WBG_Bank_Accounts_Choice_eSaver"
+					}
+					var m,
+					n;
+					if (c.isMobile())
+						if ("Welcome" === a)
+							m = b.TrackingId_WelcomePage_Mobile;
+						else {
+							if ("Thankyou" !== a)
+								return;
+							m = b.TrackingId_ThankyouPage_Mobile
+						}
+					else if ("Welcome" === a)
+						m = b.TrackingId_WelcomePage_Desktop;
+					else {
+						if ("Thankyou" !== a)
+							return;
+						m = b.TrackingId_ThankyouPage_Desktop
+					}
+					n = d("WestpacID");
+					var o = "";
+					if (o = n ? n + e("date")(new Date, "yyyyMMddHHmmss") : e("date")(new Date, "yyyyMMddHHmmss"),
+						b.POSTCLICK_TRACKING_ENABLED && m) {
+						var p = b.POSTCLICK_TRACKING_URL.replace(/{trackingId}/gi, m).replace(/{promoCode}/gi, j).replace(/{applicationId}/gi, o).replace(/{productId}/gi, k).replace(/{productDescription}/gi, l).replace(/{decision}/gi, i),
+						q = '<img class="postClickPixel" height="0" width="0" src="' + p + '"/>';
+						$(q).appendTo("body")
+					}
+				}
+			}
+		}
+	])
+
+    */
 }
